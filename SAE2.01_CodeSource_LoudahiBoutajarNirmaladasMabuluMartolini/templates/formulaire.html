@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Comparer deux stations{% endblock %}
+{% block content %}
+<h1>Formulaire d'avis</h1>
+<div class="form-container"><form action="/formulaire" method="POST">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+        <br>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+        <br>
+        <label>Nombre d'étoiles :</label>
+        <div class="rating">
+            <input type="hidden" name="etoiles" id="etoiles" required>
+            <span onclick="selectStars(1)" class="star">&#9733;</span>
+            <span onclick="selectStars(2)" class="star">&#9733;</span>
+            <span onclick="selectStars(3)" class="star">&#9733;</span>
+            <span onclick="selectStars(4)" class="star">&#9733;</span>
+            <span onclick="selectStars(5)" class="star">&#9733;</span>
+        </div>
+        <br>
+        <label for="message">Commentaire : </label>
+        <input type="text" id="message" name="message" required>
+        <br>
+        <input type="submit" value="Envoyer">
+    </form></div>
+    
+    <h1>Avis des personnes</h1>
+    <ul>
+        {% for avis in avis_list %}
+        <div id="avis">
+        <li>
+            <p>Nom : {{ avis.nom }}</p>
+            <p>Prénom : {{ avis.prenom }}</p>
+            <p>Nombre d'étoiles :
+                {% for i in range(5) %}
+                    {% if i < avis.etoiles %}
+                        <span class="star selected">&#9733;</span>
+                    {% else %}
+                        <span class="star">&#9734;</span>
+                    {% endif %}
+                {% endfor %}
+            </p>
+            <p>Commentaire : {{ avis.message }}</p>
+        </li>
+    </div>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+

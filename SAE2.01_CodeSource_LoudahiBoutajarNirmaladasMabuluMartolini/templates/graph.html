@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Tous les chemins{% endblock %}
+
+{% block content %}
+<h1>Réseau de métro d'Ile-de-France</h1>
+
+<div class="form-container">
+    <form method="POST">
+        <input type="text" name="depart" placeholder="Départ" required>
+        <input type="text" name="destination" placeholder="Destination" required>
+        <input type="submit" value="Afficher le graphe">
+    </form>
+</div>
+<div>
+    {{ graphe|safe }}
+</div>
+
+{% endblock %}
+
+
+

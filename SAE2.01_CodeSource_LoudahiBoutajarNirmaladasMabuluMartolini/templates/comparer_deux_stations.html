@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Comparer deux stations{% endblock %}
+{% block content %}
+<h1>Réseau de métro d'Ile-de-France</h1>
+<div class="form-container">
+    <form method="POST">
+        <input type="text" name="station1" placeholder="Station de départ" required>
+        <input type="text" name="station2" placeholder="Station d'arrivée" required>
+        <input type="text" name="p" placeholder="Distance p" required>
+        <input type="submit" value="Comparer les deux stations">
+    </form>
+</div>
+
+    {% if resultats %}
+    <h2>Comparaisons :</h2>
+        {% for elem in resultats %}
+            <li>{{ elem }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
+
+

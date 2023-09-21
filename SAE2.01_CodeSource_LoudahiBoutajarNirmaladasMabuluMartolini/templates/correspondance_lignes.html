@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Comparer deux stations{% endblock %}
+{% block content %}
+<h1>Réseau de métro d'Ile-de-France</h1>
+<div class="form-container">
+    <form method="POST">
+        <input type="text" name="ligne1" placeholder="Ligne 1" required>
+        <input type="text" name="ligne2" placeholder="Ligne 2" required>
+        <input type="submit" value="Trouver les correspondances entre deux lignes">
+    </form>
+</div>
+
+    {% if resultat %}
+        {% for elem in resultat %}
+           <li>{{elem}}</li> 
+        {% endfor %}
+    {% endif %}
+{% endblock %}

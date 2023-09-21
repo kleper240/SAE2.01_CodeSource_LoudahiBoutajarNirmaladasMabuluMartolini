@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Upec IDF{% endblock %}
+
+{% block content %}
+<h1>Carte intéracrtive du réseau métro en Ile-de-France</h1>
+<div class="pageiframe">
+<div class="iframe">
+<iframe src="{{ url_for('static', filename='paris_metro.html') }}", title="Carte intéracrtive"></iframe>
+</div>
+</div>
+{% endblock %}
+
+
+

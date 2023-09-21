@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <body>
+        <nav class="navbar">
+
+          <div class="logo"><img src="{{ url_for('static', filename='upec-blanc.png') }}"></div>
+          <ul class="nav-links">
+            <div class="menu">
+              <li><a href="/">Accueil</a></li>
+              <li class="services">
+                <a href="/">Comparaisons</a>
+                <ul class="dropdown">
+                  <li><a href="/pluscourt">Plus court chemin</a></li>
+                  <li><a href="/tousleschemins">Tous les chemins possibles</a></li>
+                  <li><a href="/comparerdeuxstations">Comparer deux stations</a></li>
+                  <li><a href="/correspondancelignes">Correspondance entre deux lignes</a></li>
+                  <li><a href="/graph">Graphe</a></li>
+                </ul>
+                
+      
+              </li>
+              <li><a href="/formulaire">Avis</a></li> 
+            </div>
+          </ul>
+        </nav>
+    
+        {% block content %}
+        
+        
+        {% endblock %}
+    
+    
+    <footer>
+        <p>Upec IDF | Tous droits résérvés.</p>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

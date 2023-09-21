@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Tous les chemins{% endblock %}
+
+{% block content %}
+<h1>Réseau de métro d'Ile-de-France</h1>
+
+<div class="form-container">
+    <form method="POST">
+        <input type="text" name="start_station" placeholder="Station de départ" required>
+        <input type="text" name="end_station" placeholder="Station d'arrivée" required>
+        <input type="text" name="limit" placeholder="Limite du nombre de stations" required>
+        <input type="submit" value="Trouver les chemins">
+    </form>
+</div>
+
+{% if paths %}
+    <h2>Tous les chemins possibles :</h2>
+    <ul class="path-list">
+        {% for path in paths %}
+            <li>{{ path }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Plus court chemin{% endblock %}
+
+{% block content %}
+<h1>Réseau de métro d'Ile-de-France</h1>
+
+<div class="form-container">
+    <form method="POST">
+        <input type="text" name="start_station" placeholder="Station de départ" required>
+        <input type="text" name="end_station" placeholder="Station d'arrivée" required>
+        <input type="submit" value="Trouver le chemin le plus court">
+    </form>
+</div>
+
+
+{% if shortest_path %}
+<h2>Plus court chemin :</h2>
+<p class="shortest-path">
+    {% for station in shortest_path %}
+        {{ station }}
+        {% if not loop.last %} &rarr; {% endif %}
+    {% endfor %}
+</p>
+<p class="shortest-path-duration">Le temps qu'il faut pour réaliser ce trajet est de : <div id="rouge">{{ shortest_path_duration }}</div></p>
+{% endif %}
+{% endblock %}
+
+
